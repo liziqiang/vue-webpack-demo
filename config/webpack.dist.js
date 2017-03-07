@@ -4,14 +4,19 @@ const util                = require( './util' );
 const config              = base.commonConfig;
 const webpack             = require( 'webpack' );
 // 文件名
-base.output.filename      = '[name].[hash].js';
-base.output.chunkFilename = '[id].[hash].chunk.js';
+base.output.filename      = '[name]_[chunkhash].js';
+base.output.chunkFilename = '[name]_[chunkhash].js';
+base.output.publicPath    = 'http://static.iqiyi.com/js/publicPlatform/';
 base.plugins.push(
-new webpack.NoErrorsPlugin(),
 new webpack.optimize.DedupePlugin(),
 new webpack.optimize.UglifyJsPlugin( {
-    mangle : {
-        keep_fnames : true
+    compress : {
+        warnings      : false, // 警告开关
+        drop_debugger : true,
+        drop_console  : true
+    },
+    output   : {
+        comments : false // 注释开关
     }
 } )
 );

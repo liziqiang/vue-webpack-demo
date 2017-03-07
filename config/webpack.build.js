@@ -7,10 +7,11 @@ const HtmlWebpackPlugin   = require( 'html-webpack-plugin' );
 base.devtool              = 'source-map';
 // 文件名
 base.output.filename      = '[name].js';
-base.output.chunkFilename = '[id].chunk.js';
+base.output.chunkFilename = '[name].js';
+base.output.publicPath    = '/';
 // webpack dev server
 base.plugins.push(
-new HtmlWebpackPlugin( { template : './pages/index.html' } ),
+new HtmlWebpackPlugin( { template : './pages/index.html', chunks : [ 'vendor', 'app' ] } ),
 new webpack.HotModuleReplacementPlugin()
 );
 module.exports = base;
