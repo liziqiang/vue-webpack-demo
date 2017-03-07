@@ -39,8 +39,7 @@ module.exports           = {
     resolve : {
         extensions : [ '', '.js', '.vue' ],
         alias      : {
-            'vue'     : 'vue/dist/vue.js',
-            'echarts' : 'echarts/dist/echarts.common.js'
+            'vue' : 'vue/dist/vue.js'
         }
     },
     module  : {
